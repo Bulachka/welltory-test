@@ -3,19 +3,19 @@ from jsonschema import validate
 from os import walk
 
 
-def main():
-    for step in walk('schema'):  # make schema dictionary
+def main(json_files_path, schema_path):
+    for step in walk(schema_path):  # make schema dictionary
         schemas_list = step[2]
-    schemas = {key[:-7]: value for key in schemas_list for value in open('.\schema\{}'.format(key))}
+    schemas = {key[:-7]: value for key in schemas_list for value in open('{}\{}'.format(schema_path, key))}
 
-    for step in walk('event'):  # make list of json files
+    for step in walk(json_files_path):  # make list of json files
         files = step[2]
 
     errors = {}
 
     for file in files:
         errors[file] = []
-        with open('.\event\{}'.format(file)) as f:
+        with open('{}\{}'.format(json_files_path, file)) as f:
             jsonfile = json.load(f)
             try:
                 schema_name = jsonfile['event']
@@ -38,4 +38,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(input("Please enter path to folder with json files: "), input("Please enter path to folder with schemas: "))
