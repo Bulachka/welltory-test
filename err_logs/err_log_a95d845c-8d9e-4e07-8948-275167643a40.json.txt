@@ -1,0 +1,3 @@
+schema is absent
+data is absent
+schema 'meditation_created' does not exist

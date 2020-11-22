@@ -1,0 +1,1 @@
+schema 'meditation_created' does not exist
