@@ -1,16 +1,15 @@
-File name: 1eba2aa1-2acf-460d-91e6-55a8c3e3b7a3.json List of errors: ['string indices must be integers']
-File name: 297e4dc6-07d1-420d-a5ae-e4aff3aedc19.json List of errors: ['string indices must be integers']
-File name: 29f0bfa7-bd51-4d45-93be-f6ead1ae0b96.json List of errors: ['schema property is absent', 'data property is absent', 'string indices must be integers']
-File name: 2e8ffd3c-dbda-42df-9901-b7a30869511a.json List of errors: ["schema 'meditation_created' does not exist"]
-File name: 3ade063d-d1b9-453f-85b4-dda7bfda4711.json List of errors: ["schema 'cmarker_calculated' does not exist"]
-File name: 3b4088ef-7521-4114-ac56-57c68632d431.json List of errors: ['string indices must be integers']
+"script.py" is a python module made to validate json file with given schemas.
+Validation is going according to field "data", the corresponding schema is taken from the field "event".
+
+Requirements: python 3 with installed "jsonschema" module.
+
+To run the script it's possible to assign:
+Folder, that store json files (json_files_path), by default='./task_folder/event/',
+Folder, that store schemas (schema_path), by default='./task_fodelr/schema/',
+File to store logs (err_file), by default='./report.txt'.
+
+Output:
+file with a list of errors, made by template:
+'File name: + List of errors: ', every new file on a new line.
+Example:
 File name: 6b1984e5-4092-4279-9dce-bdaa831c7932.json List of errors: ["schema 'meditation_created' does not exist"]
-File name: a95d845c-8d9e-4e07-8948-275167643a40.json List of errors: ['schema property is absent', 'data property is absent', "schema 'meditation_created' does not exist"]
-File name: ba25151c-914f-4f47-909a-7a65a6339f34.json List of errors: ["schema 'label_       selected' does not exist"]
-File name: bb998113-bc02-4cd1-9410-d9ae94f53eb0.json List of errors: ['string indices must be integers']
-File name: c72d21cf-1152-4d8e-b649-e198149d5bbb.json List of errors: ["schema 'meditation_created' does not exist"]
-File name: cc07e442-7986-4714-8fc2-ac2256690a90.json List of errors: ['string indices must be integers']
-File name: e2d760c3-7e10-4464-ab22-7fda6b5e2562.json List of errors: ['string indices must be integers']
-File name: f5656ff6-29e1-46b0-8d8a-ff77f9cc0953.json List of errors: ['string indices must be integers']
-File name: fb1a0854-9535-404d-9bdd-9ec0abb6cd6c.json List of errors: ['string indices must be integers']
-File name: ffe6b214-d543-40a8-8da3-deb0dc5bbd8c.json List of errors: ['string indices must be integers']
