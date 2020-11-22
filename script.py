@@ -11,23 +11,30 @@ def main():
     for step in walk('event'):  # make list of json files
         files = step[2]
 
+    errors = {}
+
     for file in files:
-        with open('.\event\{}'.format(file)) as f, open('err_logs\err_log_{}.txt'.format(file), 'w') as log:
+        errors[file] = []
+        with open('.\event\{}'.format(file)) as f:
             jsonfile = json.load(f)
             try:
                 schema_name = jsonfile['event']
             except (TypeError, KeyError):
-                log.write('schema is absent' + '\n')
+                errors[file].append('schema property is absent')
             try:
                 data_to_validate = jsonfile['data']
             except (TypeError, KeyError):
-                log.write('data is absent' + '\n')
+                errors[file].append('data property is absent')
             try:
                 validate(data_to_validate, schemas[schema_name])
             except TypeError as err:
-                log.write(str(err))
+                errors[file].append(str(err))
             except KeyError as err:
-                log.write("schema " + str(err) + " does not exist")
+                errors[file].append("schema " + str(err) + " does not exist")
+
+    with open('README.txt', 'w') as readme:
+        for k, v in errors.items():
+            print('File name: ' + k + ' List of errors: ' + str(v), file=readme)
 
 
 if __name__ == "__main__":
