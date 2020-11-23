@@ -6,7 +6,7 @@
 Validation is going according to field "data", the corresponding schema is taken from the field "event".
 
 ## Requirements 
-python 3 with installed "jsonschema" module.
+pip install -r requirements.txt
 
 ## Usage
 To run the script it's possible to assign:
